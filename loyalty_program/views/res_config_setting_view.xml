@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_config_setting_form_view" model="ir.ui.view">
+            <field name="name">res.config.setting.form.view</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Loyalty Department" string="Loyalty Department"
+                         data-key="loyalty_program">
+                        <h2>Loyalty Department</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Danh sách chương trình khuyến mãi</span>
+                                    <div class="text-muted content-group mt16">
+                                        <label for="loyalty_for_sale_id"/>
+                                        <field name="loyalty_for_sale_id" class="text-center oe_inline"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+        <record id="action_sale_config_loyalty" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_setting_form_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module': 'loyalty_program', 'bin_size': False}</field>
+        </record>
+
+
+        <menuitem name="Configuration" id="menu_setting" parent="menu_root_loyalty" action="action_sale_config_loyalty"
+                  sequence="2"/>
+        <menuitem name="Setting" id="menu_config_setting" parent="menu_setting" action="action_sale_config_loyalty"
+                  sequence="0"/>
+    </data>
+</odoo>

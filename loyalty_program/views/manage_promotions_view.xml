@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="manage_promotions_form_view" model="ir.ui.view">
+            <field name="name">manage.promotions.form.view</field>
+            <field name="model">manage.promotions</field>
+            <field name="arch" type="xml">
+                <form string="Manage promotions">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <label for="points"/>
+                        <field name="points"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="manage_promotions_tree_view" model="ir.ui.view">
+            <field name="name">manage.promotions.tree.view</field>
+            <field name="model">manage.promotions</field>
+            <field name="arch" type="xml">
+                <tree string="Manage promotions">
+                    <field name="name"/>
+                    <field name="points"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_manage_promotions" model="ir.actions.act_window">
+            <field name="name">Loyalty Program</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manage.promotions</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Loyalty" id="menu_root_loyalty" action="action_manage_promotions"/>
+        <menuitem name="Management" id="menu_management" parent="menu_root_loyalty" action="action_manage_promotions"
+                  sequence="0"/>
+        <menuitem name="Program" id="menu_management_program" parent="menu_management" action="action_manage_promotions"
+                  sequence="0"/>
+    </data>
+</odoo>

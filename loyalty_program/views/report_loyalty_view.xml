@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="report_loyalty_form_view" model="ir.ui.view">
+            <field name="name">report.loyalty.form.view</field>
+            <field name="model">report.loyalty</field>
+            <field name="arch" type="xml">
+                <form string="Report">
+                    <sheet>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_loyalty_tree_view" model="ir.ui.view">
+            <field name="name">report.loyalty.tree.view</field>
+            <field name="model">report.loyalty</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_report_loyalty" model="ir.actions.act_window">
+            <field name="name">Report loyalty</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.loyalty</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Report" id="report_loyalty_menu" parent="menu_root_loyalty" action="action_report_loyalty" sequence="1"/>
+        <menuitem name="Activities" id="report_loyalty_menu_child" parent="report_loyalty_menu" action="action_report_loyalty" sequence="0"/>
+    </data>
+</odoo>
