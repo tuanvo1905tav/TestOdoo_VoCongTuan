@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sale_shipping']" position="after">
+                    <group string="Loyalty">
+                        <field name="fk_loyalty_program"/>
+                        <field name="loyalty_name" readonly= "True" force_save="1"/>
+                        <field name="point_accumulated" readonly= "True" force_save="1"/>
+                        <field name="point_accumulating" readonly= "True" force_save="1"/>
+                        <field name="point_won" readonly= "True" force_save="1"/>
+                        <field name="points" readonly= "True" force_save="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
