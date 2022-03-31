@@ -11,3 +11,7 @@ class History(models.Model):
     loyalty_point = fields.Float('Loyalty point')
     date_order = fields.Datetime('Date order')
     name = fields.Char('Order code')
+
+
+
+

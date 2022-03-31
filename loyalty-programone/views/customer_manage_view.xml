@@ -10,7 +10,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='email']" position="after">
                     <field name="loyalty_point" string="Loyalty Points" readonly='1'/>
-                    <field name="loyalty_level" string="Partner levels" readonly='1'/>
+                    <field name="loyalty_levels" string="Partner levels" readonly='1'/>
                 </xpath>
 
 
